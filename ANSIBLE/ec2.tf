@@ -1,7 +1,7 @@
 # configured aws provider with proper credentials
 provider "aws" {
   region  = "us-east-1"
-  profile = "yusuf"
+  profile = "samuel"
 }
 
 
@@ -72,7 +72,7 @@ resource "aws_security_group" "ec2_security_group2" {
 }
 
 
-# use data source to get a registered amazon linux 2 ami
+# use data source to get a registered ubuntu ami
 data "aws_ami" "ubuntu" {
 
     most_recent = true
@@ -97,7 +97,7 @@ resource "aws_instance" "ec2_instance" {
   instance_type          = "t2.medium"
   subnet_id              = aws_default_subnet.default_az1.id
   vpc_security_group_ids = [aws_security_group.ec2_security_group2.id]
-  key_name               = "devopskeypair"
+  key_name               = "New4KP"
   count                  = 4
 
   tags = {
